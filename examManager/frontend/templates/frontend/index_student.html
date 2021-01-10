@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exams Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+	<style>
+
+
+body{
+		  background: rgba(187, 213, 217, 0.84);
+		}
+
+h1, h2, h3, h4, h5, p, span, strike{
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: rgba(187, 213, 217, 0.84);
+    width: 20%;
+    margin: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+div.jumbotron{
+    background: rgba(187, 213, 217, 0.84);
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -appearance: button;
+    text-decoration: none;
+    color: initial;
+}
+.btn {
+  display: inline-block;
+  *zoom: 1;
+  padding: 4px 12px;
+  margin:15px 44px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration:none;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  border: 1px solid #bbbbbb;
+  *border: 0;
+  border-bottom-color: #a2a2a2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.btn:active,
+.btn.active {
+  background-color: #cccccc \9;
+}
+.btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.btn:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn.active,
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#task-container{
+  max-width:800px;
+  margin:0 auto;
+  /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+  background-color: #fff;
+
+  margin-top:100px;
+  margin-bottom:100px;
+
+  justify-content: space-around;
+  align-items: flex-start;
+
+}
+
+#form-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0rem;
+  border-bottom: 1px solid  #e9e9e9;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  padding:40px;
+}
+
+/*#submit{*/
+/*  border-radius: 5px;*/
+/*  border:0;*/
+/*}*/
+
+.flex-wrapper{
+    display: flex;
+}
+
+.task-wrapper{
+    margin:5px;
+    padding: 5px;
+    padding:20px;
+    cursor: pointer;
+    border-bottom: 1px solid  #e9e9e9;
+    color: #686868;
+    }
+
+        </style>
+
+</head>
+<body>
+
+
+
+
+<div class="jumbotron bg text-center text-center">
+  <div class="transbox">
+  <div class="well">
+      <h1 text-center> Exam Manager</h1>
+      <span style="display:inline-block; width: 5px;"></span>
+      <h3> Actions </h3>
+
+<ul >
+    <li><a href="http://127.0.0.1:8000/front/">Home</a></li>
+    <li><a href="http://127.0.0.1:8000/front/examslist/">Exams list</a></li>
+    <li><a href="http://127.0.0.1:8000/front/gradeslist/">Grades</a></li>
+    <li><a href="http://127.0.0.1:8000/front/studentslist/">Students</a></li>
+
+</ul>
+    </div>
+</div>
+ </div>
+
+<div class="jumbotron bg text-center text-center" id="container">
+
+	<h3>Exam List:</h3>
+    <div class="container">
+		<div id="task-container">
+			<div id="form-wrapper">
+				<form id="form">
+					<div class="flex-wrapper">
+						<div style="flex: 6">
+							<input id="title" class="form-control" type="text" name="title" placeholder="Add Exam">
+						</div>
+                        <div>
+							<input id="submit" class="btn" type="submit" value="POST">
+						</div>
+
+					</div>
+				</form>
+			</div>
+            <div id="list-wrapper">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+        function buildList(){
+			var wrapper = document.getElementById('list-wrapper');
+			//wrapper.innerHTML = ''
+
+
+
+			var url = 'http://127.0.0.1:8000/exam/';
+
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data);
+
+				var list = data;
+				for (var i in list){
+					var item = `
+                    <div id="data-row-${i}" class="task-wrapper flex-wrapper">
+                            <div style="flex:7">
+                            <span class=title"> Title: ${list[i].title}</span>
+                            <span class=title"> Description: ${list[i].description}</span>
+                            <span class=title"> Location: ${list[i].location}</span>
+                            <span class=title"> ID: ${list[i].id_exam}</span>
+
+                            <span class=title"> Students IDs: ${list[i].student_id}</span>
+
+                            </div>
+                            <div style="flex:1">
+                                <button class="btn edit">EDIT </button>
+                            </div>
+                             <div style="flex:1">
+                                <button class="btn delete">DELETE</button>
+                            </div>
+                            </div>
+						`
+					wrapper.innerHTML += item
+
+								}})}
+
+function buildListStudents(){
+			var wrapper = document.getElementById('list-wrapper');
+			//wrapper.innerHTML = ''
+
+
+
+			var url = 'http://127.0.0.1:8000/students/';
+
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data);
+
+				var list = data;
+				for (var i in list){
+					var item = `
+                    <div id="data-row-${i}" class="task-wrapper flex-wrapper">
+                            <div style="flex:7">
+                            <span class=title"> Name: ${list[i].first_name}</span>
+                            <span class=title"> Last Name: ${list[i].last_name}</span>
+                            <span class=title"> ID: ${list[i].id_user}</span>
+                            <span class=title"> email: ${list[i].email}</span>
+                            </div>
+                            <div style="flex:1">
+                                <button class="btn edit">EDIT  </button>
+                            </div>
+                             <div style="flex:1">
+                                <button class="btn delete">DELETE</button>
+                            </div>
+                            </div>
+						`
+					wrapper.innerHTML += item
+
+								}})}
+
+
+function buildListGrades(){
+			var wrapper = document.getElementById('list-wrapper');
+			//wrapper.innerHTML = ''
+
+			var url = 'http://127.0.0.1:8000/grades/';
+
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data);
+
+				var list = data;
+				for (var i in list){
+					var item = `
+                    <div id="data-row-${i}" class="task-wrapper flex-wrapper">
+                            <div style="flex:7">
+                            <span class=title"> Student ID: ${list[i].student_id}</span>
+                            <span class=title"> Exam ID: ${list[i].exam_id}</span>
+                            <span class=title"> Grade: ${list[i].grade_number}</span>
+                            </div>
+                            <div style="flex:1">
+                                <button class="btn edit">EDIT  </button>
+                            </div>
+                             <div style="flex:1">
+                                <button class="btn delete">DELETE</button>
+                            </div>
+                            </div>
+						`
+					wrapper.innerHTML += item
+
+								}})}
+    buildList()
+</script>
+
+</body>
+</html>

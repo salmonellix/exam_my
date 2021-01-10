@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exams Manager</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+	<style>
+        {% include 'frontend/../styles.css' %}
+        </style>
+
+</head>
+<body>
+
+
+
+
+<div class="jumbotron bg text-center text-center">
+  <div class="transbox">
+  <div class="well">
+      <h1 text-center> Exam Manager - Student</h1>
+      <span style="display:inline-block; width: 5px;"></span>
+      <h3> Actions </h3>
+
+<ul >
+    <li><a href="http://127.0.0.1:8000/front/student/">Home</a></li>
+    <li><a href="http://127.0.0.1:8000/front/student/examslist/">Exams list</a></li>
+    <li><a href="http://127.0.0.1:8000/front/student/gradeslist/">Grades</a></li>
+</ul>
+    </div>
+</div>
+
+ </div>
+
+
+<div class="jumbotron bg text-center text-center" id="container">
+
+	<h3>Grades List:</h3>
+    <div class="container">
+		<div id="task-container">
+
+            <div id="list-wrapper">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    {% include 'frontend/js/my_script.js' %}
+    {#buildListGrades()#}
+</script>
+</body>
+</html>

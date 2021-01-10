@@ -1,0 +1,47 @@
+{#{% extends "frontend/index.html" %}#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Exams Manager</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+	<style >
+        {% include 'frontend/../styles.css' %}
+        </style>
+
+</head>
+<body>
+
+
+<!-- First Container -->
+
+<div class="jumbotron bg text-center text-center">
+  <div class="transbox">
+  <div class="well">
+      <h1 text-center> Exam Manager</h1>
+      <span style="display:inline-block; width: 5px;"></span>
+
+    </div>
+</div>
+
+<!-- First Container (Grid) -->
+<div class="wrapper fadeInDown bg-3">
+  <div id="formContent">
+ <h3> Login</h3>
+    <!-- Login Form -->
+    <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <a href="http://127.0.0.1:8000/front/" class="button">Login</a>
+    </form>
+        </div>
+    </div>
+ </div>
+</body>
+</html>
+
