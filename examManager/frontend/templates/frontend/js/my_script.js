@@ -35,9 +35,9 @@ function buildList(){
                     <div id="data-row-${i}" class="task-wrapper flex-wrapper">
                             <div style="flex:7">
                             <span class=title"> Title: ${list[i].title}</span>
-                            <span class=title"> Description: ${list[i].description}</span>
-                            <span class=title"> Location: ${list[i].location}</span>
-                            <span class=title"> ID: ${list[i].id_exam}</span>
+                            <span class=description"> Description: ${list[i].description}</span>
+                            <span class=location"> Location: ${list[i].location}</span>
+                            <span class=id_e"> ID: ${list[i].id_exam}</span>
 
 
                             </div>
@@ -104,12 +104,43 @@ function buildList(){
 				clearAll()
 				buildList()
 			})
-		}			
+		}
+
+		var form = document.getElementById('form-wrapper')
+		form.addEventListener('submit', function(e){
+			e.preventDefault()
+			console.log('Form submitted')
+			var url = 'http://127.0.0.1:8000/front/exam-create/'
+			if (activeItem != null){
+				var url = `http://127.0.0.1:8000/front/exam-update/${activeItem.id}/`
+				activeItem = null
+			}
+
+			var title = document.getElementById('title').value
+			var description = document.getElementById('description').value
+			var location = document.getElementById('location').value
+			var id_s = document.getElementById('id_s').value
+			console.log(title)
+			fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'title':title, 'description': description, 'location': location, 'student_id': id_s})
+			}
+
+			).then(function(response){
+				clearAll()
+				buildList()
+				document.getElementById('form').reset()
+			})
+		})
 			
 			
 			
 function buildListStudents(){
-			var wrapper = document.getElementById('list-wrapper');
+			var wrapper = document.getElementById('list-wrapper-students');
 			//wrapper.innerHTML = ''
 
 
@@ -124,21 +155,16 @@ function buildListStudents(){
 				var list = data;
 				for (var i in list){
 					var item = `
-                    <div id="data-row-${i}" class="task-wrapper flex-wrapper">
-                            <div style="flex:7">
-                            <span class=title"> Name: ${list[i].first_name}</span>
-                            <span class=title"> Last Name: ${list[i].last_name}</span>
-                            <span class=title"> ID: ${list[i].id_user}</span>
-                            <span class=title"> email: ${list[i].email}</span>
-                            </div>
-                            <div style="flex:1">
-                                <button class="btn edit">EDIT  </button>
-                            </div>
-                             <div style="flex:1">
-                                <button class="btn delete">DELETE</button>
-                            </div>
-                            </div>
-						`
+                    <div id="data-row-check-${i}" class="task-wrapper flex-wrapper">
+                            <div class="checkbox" style="flex:7">
+							  <label>
+							  <input type="checkbox" name="student" value="${list[i].id_user}>
+								</label>
+                            <td class=title"> Name: ${list[i].first_name}</td>
+                            <td class=title"> Last Name: ${list[i].last_name}</td>
+                            <td class=title"> ID: ${list[i].username}</td>
+                            </div>`
+
 					wrapper.innerHTML += item
 
 								}})}

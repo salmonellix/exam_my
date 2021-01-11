@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, UpdateView, ListView
 from rest_framework.decorators import api_view
-
+from django.shortcuts import get_object_or_404
 from appExam.models import Exam, Grade
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
@@ -21,11 +23,19 @@ class ExamList(APIView):
         queryset = Exam.objects.all()
         return Response({'exams': queryset})
 
+    # def post(self, request):
+    #     exam = get_object_or_404(Exam, pk=pk)
+    #     serializer = ExamSerializer(exam, data=request.data)
+    #     if not serializer.is_valid():
+    #         return Response({'serializer': serializer, 'exam': exam})
+    #     serializer.save()
+    #     return redirect('exam_list')
+
 
 def exams(request):
     # renderer_classes = [TemplateHTMLRenderer]
     # template_name = 'exams_list.html'
-    # queryset = Exam.objects.all()
+    queryset = Exam.objects.all()
     # return Response({'exams': queryset})
     return render(request, 'frontend/exams_list.html')
 
@@ -116,3 +126,17 @@ def examDelete(request, pk):
         return Response('Item succsesfully delete!')
     else:
         return Response('Cant delete!')
+
+# class ExamCreateView(CreateView):
+#     model = Exam
+#     fields = ('title', 'description', 'location', 'student_id')
+#     success_url = reverse_lazy('exam_changelist')
+#
+# class ExamUpdateView(UpdateView):
+#     model = Exam
+#     fields = ('title', 'description', 'location', 'student_id')
+#     success_url = reverse_lazy('exam_changelist')
+#
+# class ExamListView(ListView):
+#     model = Exam
+#     context_object_name = 'exams'
