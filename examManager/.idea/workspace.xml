@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc2c41b-08f7-4085-a28f-c013d97619bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/templates/frontend/exams_list_students.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appExam/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/appExam/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appExam/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appExam/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appExam/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appExam/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/frontend/exams_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/frontend/exams_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/frontend/exams_list_student.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/frontend/exams_list_student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/frontend/js/my_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/frontend/js/my_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/templates/frontend" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -78,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610315678463</updated>
-      <workItem from="1610315679850" duration="27373000" />
+      <workItem from="1610315679850" duration="32072000" />
     </task>
     <servers />
   </component>
@@ -90,10 +83,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1610362416327" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1610315832422">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1550" y="6" key="SettingsEditor" timestamp="1610369070628">
+      <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1610315832422" />
+    <state x="1550" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1366.768@1366.0.1366.768" timestamp="1610369070628" />
     <state x="2050" y="30" width="656" height="687" key="dock-window-1" timestamp="1610366038180">
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
