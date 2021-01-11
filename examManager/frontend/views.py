@@ -69,7 +69,7 @@ def examsStudent(request):
     # template_name = 'exams_list.html'
     # queryset = Exam.objects.all()
     # return Response({'exams': queryset})
-    return render(request, 'frontend/exams_list_student.html')
+    return render(request, 'frontend/exams_list_students.html')
 
 
 def homeStudent(request):
@@ -99,7 +99,7 @@ def examDelete(request):
 @api_view(['POST'])
 def examCreate(request):
     serializer = ExamSerializer(data=request.data)
-
+    serializer.save()
     if serializer.is_valid():
         serializer.save()
 
@@ -107,9 +107,11 @@ def examCreate(request):
 
 
 @api_view(['POST'])
-def examUpdate(request, pk):
-    exam = Exam.objects.get(id_exam=pk)
-    serializer = ExamSerializer(instance=exam, data=request.data)
+def examUpdate(request, rid):
+    exam = Exam.objects.get(id_exam=rid)
+    exam.description = request.data.get('description')
+    exam.save()
+    serializer = ExamSerializer(instance=exam.description, data=request.data)
 
     if serializer.is_valid():
         serializer.save()
@@ -118,9 +120,9 @@ def examUpdate(request, pk):
 
 
 @api_view(['DELETE'])
-def examDelete(request, pk):
-    exam = Exam.objects.get(id_exam=pk)
-    grades = Grade.objects.filter(exam_id=pk)
+def examDelete(request, rid):
+    exam = Exam.objects.get(id_exam=rid)
+    grades = Grade.objects.filter(exam_id=rid)
     if not grades:
         exam.delete()
         return Response('Item succsesfully delete!')

@@ -30,7 +30,6 @@
     <li><a href="http://127.0.0.1:8000/front/">Home</a></li>
     <li><a href="http://127.0.0.1:8000/front/examslist/">Exams list</a></li>
     <li><a href="http://127.0.0.1:8000/front/gradeslist/">Grades</a></li>
-    <li><a href="http://127.0.0.1:8000/front/studentslist/">Students</a></li>
 
 </ul>
     </div>
@@ -41,37 +40,12 @@
 
 	<h3>Exam List:</h3>
 
-
-    <div class="container">
-        <div id="task-container">
-
-            <div id="form-wrapper">
-
-				<form id="form">
-					<div class="flex-wrapper">
-						<div style="flex: 6">
-
-                            <h5>ADD EXAM:</h5>
-							<input id="title" class="form-control" type="text" name="title" placeholder="title">
-                            <input id="description" class="form-control" type="text" name="description" placeholder="description">
-                            <input id="location" class="form-control" type="text" name="location" placeholder="location">
-{#                            <input id="id_s" class="form-control" type="text" name="id_s" placeholder="ID students">#}
-                            <br />Students:
-                            <div id="list-wrapper-students">
-                            </div>
+    						<div style="flex:2">
+							<input id="id_student" class="form-control" name="search" placeholder="ID STUDENT">
 						</div>
-                        <div>
-							<input id="submit" class="btn" type="submit" value="POST">
+                           <div style="flex:1">
+							<input id="id_st" class="btn" onclick="buildListStudents()" value="SEARCH">
 						</div>
-
-					</div>
-				</form>
-{#                <div>#}
-{#							<input id="submit" class="btn" type="submit" value="POST">#}
-{#                </div>#}
-			</div>
-
-    </div>
 
 		<div id="task-container">
             <div id="form-wrapper">
@@ -81,7 +55,7 @@
 							<input id="search" class="form-control" name="search" placeholder="Search">
 						</div>
                         <div style="flex:1">
-							<input id="search" class="btn" onclick="searchExam()" value="SEARCH">
+							<input id="search" class="btn" onclick="searchExamStudent()" value="SEARCH">
 						</div>
                         <div style="flex:1">
 							<input id="clear" class="btn" onclick="clearSearch()" value="CLEAR">
@@ -107,8 +81,7 @@
 
 <script>
     {% include 'frontend/js/my_script.js' %}
-    buildList()
-    buildListStudents()
+
 </script>
 
 </body>

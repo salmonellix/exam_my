@@ -33,6 +33,8 @@ class ExamViewSet(viewsets.ModelViewSet):
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all().order_by('username')
     serializer_class = StudentSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username']
 
 
 class GradeViewSet(viewsets.ModelViewSet):

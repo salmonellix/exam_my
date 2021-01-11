@@ -19,7 +19,7 @@ class StudentSerializer(serializers.ModelSerializer):
     # url = serializers.HyperlinkedIdentityField(view_name="css/student-detail")
     class Meta:
         model = Student
-        fields = ['username', 'first_name', 'last_name', 'email', 'url']
+        fields = ['username', 'first_name', 'last_name', 'email', 'id_user']
 
 
 class GradeSerializer(serializers.ModelSerializer):
