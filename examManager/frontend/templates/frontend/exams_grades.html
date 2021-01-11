@@ -40,14 +40,14 @@
 
 	<h3>Exam List:</h3>
     <div class="container">
-		<div id="task-container">
+		<div id="task-container" style="background-color: #bbd5d9;">
 
-            <h5>GRADES:</h5>
-            <div id="list-wrapper-grades">
+            <h5>GRADES: </h5>
+            <div id="list-wrapper-grades" style="background-color: #bbd5d9;">
                 {% for grade in grades %}
                 <h5> {{grade.grade_number}}</h5>
-                    {% for grade in grades %}
-                        <li> </li>
+                    {% for student in grade.student_id.all %}
+                        <li> {{ student }}</li>
                    {% endfor %}
                 {% endfor %}
 

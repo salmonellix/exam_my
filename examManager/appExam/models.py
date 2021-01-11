@@ -68,7 +68,7 @@ class Grade(models.Model):
     student_id = models.ManyToManyField(Student, blank=True, default='')
 
     def __str__(self):
-        return str(Exam.objects.filter(Q(id_exam=self.exam_id)))
+        return str(self.grade_number)
 
     # def __int__(self):
     #     return 'Exam:' + str(self.exam_id) + ' student: ' + str(self.student_id)

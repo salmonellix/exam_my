@@ -45,10 +45,10 @@ function buildList(){
                                 <button class="btn edit">EDIT </button>
                             </div>
                              <div style="flex:1">
-                                <button class="btn delete">DELETE</button>
+                                <button class="btn delete" onclick="deleteItem(${list[i].id_exam})" >DELETE</button>
                             </div>
                              <div style="flex:1">
-                                <button class="btn delete">GRADES</button>
+                                <button class="btn delete" onclick="window.location.href='http://127.0.0.1:8000/front/examslist/grades/${list[i].id_exam}/'">GRADES</button>
                             </div>
                             </div>
 						`
@@ -60,11 +60,11 @@ function buildList(){
 					var title = document.getElementsByClassName('title')[i]
 
 
-					editBtn.addEventListener('click', (function(item){
-						return function(){
-							editItem(item)
-						}
-					})(list[i]))
+					// editBtn.addEventListener('click', (function(item){
+					// 	return function(){
+					// 		editItem(item)
+					// 	}
+					// })(list[i]))
 
 
 					deleteBtn.addEventListener('click', (function(item){
@@ -74,11 +74,11 @@ function buildList(){
 					})(list[i]))
 
 
-					title.addEventListener('click', (function(item){
-						return function(){
-							strikeUnstrike(item)
-						}
-					})(list[i]))
+					// title.addEventListener('click', (function(item){
+					// 	return function(){
+					// 		strikeUnstrike(item)
+					// 	}
+					// })(list[i]))
 
 
 				}
@@ -94,13 +94,14 @@ function buildList(){
 
 		function deleteItem(item){
 			console.log('Delete clicked')
-			fetch(`http://127.0.0.1:8000/exam-delete/${item.id}/`, {
+			fetch(`http://127.0.0.1:8000/front/exam-delete/${item}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',
 					'X-CSRFToken':csrftoken,
 				}
 			}).then((response) => {
+				clearAll()
 				buildList()
 			})
 		}			
@@ -203,10 +204,11 @@ var wrapper = document.getElementById('list-wrapper-search');
                                 <button class="btn edit">EDIT </button>
                             </div>
                              <div style="flex:1">
-                                <button class="btn delete">DELETE</button>
+                                <button class="btn delete" onclick="deleteItem(${list[i].id_exam})" >DELETE</button>
                             </div>
                              <div style="flex:1">
-                                <button class="btn delete">GRADES</button>
+                                <button class="btn delete" onclick="window.location.href='http://127.0.0.1:8000/front/examslist/grades/${list[i].id_exam}/'">GRADES</button>
+                            </div>
                             </div>
                             </div>
 						`
@@ -217,6 +219,13 @@ function clearSearch() {
 			var wrapper = document.getElementById('list-wrapper-search');
 			wrapper.innerHTML = ''
 	        document.getElementById('search').reset()
+}
+
+
+function clearAll() {
+			var wrapper = document.getElementById('list-wrapper');
+			wrapper.innerHTML = ''
+	        // document.getElementById('search').reset()
 }
 
 function getGrades() {
