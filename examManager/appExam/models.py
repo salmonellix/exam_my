@@ -65,10 +65,10 @@ class Exam(models.Model):
 class Grade(models.Model):
     grade_number = fields.IntegerRangeField(min_value=1, max_value=10)
     exam_id = models.ForeignKey(Exam, on_delete=models.CASCADE)
-    student_id = models.ForeignKey(Student, blank=False, on_delete=models.PROTECT)
+    student_id = models.ManyToManyField(Student, blank=True, default='')
 
     def __str__(self):
-        return str(self.grade_number)
+        return str(Exam.objects.filter(Q(id_exam=self.exam_id)))
 
     # def __int__(self):
     #     return 'Exam:' + str(self.exam_id) + ' student: ' + str(self.student_id)

@@ -22,9 +22,6 @@ function getCookie(name) {
 function buildList(){
 			var wrapper = document.getElementById('list-wrapper');
 			//wrapper.innerHTML = ''
-
-
-
 			var url = 'http://127.0.0.1:8000/exam/';
 
 			fetch(url)
@@ -180,5 +177,49 @@ function buildListGrades(){
 								
 								
 function searchExam() {
+var wrapper = document.getElementById('list-wrapper-search');
+			//wrapper.innerHTML = ''
+			var searchTXT = document.getElementById("search").value;
+			var url = 'http://127.0.0.1:8000/exam/?search=' + searchTXT;
 
-}								
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data);
+
+				var list = data;
+				for (var i in list){
+					var item = `
+                    <div id="data-row-${i}" class="task-wrapper flex-wrapper">
+                            <div style="flex:7">
+                            <span class=title"> Title: ${list[i].title}</span>
+                            <span class=title"> Description: ${list[i].description}</span>
+                            <span class=title"> Location: ${list[i].location}</span>
+                            <span class=title"> ID: ${list[i].id_exam}</span>
+
+
+                            </div>
+                            <div style="flex:1">
+                                <button class="btn edit">EDIT </button>
+                            </div>
+                             <div style="flex:1">
+                                <button class="btn delete">DELETE</button>
+                            </div>
+                             <div style="flex:1">
+                                <button class="btn delete">GRADES</button>
+                            </div>
+                            </div>
+						`
+					wrapper.innerHTML += item
+								}})}
+
+function clearSearch() {
+			var wrapper = document.getElementById('list-wrapper-search');
+			wrapper.innerHTML = ''
+	        document.getElementById('search').reset()
+}
+
+function getGrades() {
+
+
+}

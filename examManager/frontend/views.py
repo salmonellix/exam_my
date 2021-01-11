@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from appExam.models import Exam
+from appExam.models import Exam, Grade
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -57,3 +57,14 @@ def homeStudent(request):
 def gradesStudent(request):
     return render(request, 'frontend/grades_list_student.html')
 
+
+def exams_grade(request,rid):
+    exam = Exam.objects.filter(id_exam=rid)
+    grades = Grade.objects.filter(exam_id=rid)
+
+    context = {
+        'exam': exam,
+        'grades' : grades,
+    }
+
+    return render(request, 'frontend/exams_grades.html', context)

@@ -41,38 +41,15 @@
 	<h3>Exam List:</h3>
     <div class="container">
 		<div id="task-container">
-			<div id="form-wrapper">
-                <form id="form">
-					<div class="flex-wrapper">
-						<div style="flex: 6">
-							<input id="search" class="form-control" name="search" placeholder="Search">
-						</div>
-                        <div style="flex:1">
-							<input id="search" class="btn" onclick="searchExam()" value="SEARCH">
-						</div>
-                        <div style="flex:1">
-							<input id="clear" class="btn" onclick="clearSearch()" value="CLEAR">
-						</div>
 
-					</div>
-				</form>
-				<form id="form">
-					<div class="flex-wrapper">
-						<div style="flex: 6">
-							<input id="title" class="form-control" type="text" name="title" placeholder="Add Exam">
-						</div>
-                        <div>
-							<input id="submit" class="btn" type="submit" value="POST">
-						</div>
-
-					</div>
-				</form>
-			</div>
-            <h5>SEARCHED:</h5>
-            <div id="list-wrapper-search">
-			</div>
-            <h5>ALL:</h5>
-            <div id="list-wrapper">
+            <h5>GRADES:</h5>
+            <div id="list-wrapper-grades">
+                {% for grade in grades %}
+                <h5> {{grade.grade_number}}</h5>
+                    {% for grade in grades %}
+                        <li> </li>
+                   {% endfor %}
+                {% endfor %}
 
 			</div>
 		</div>
