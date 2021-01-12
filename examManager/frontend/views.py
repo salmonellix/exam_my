@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, ListView
+from rest_framework import status
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
 from appExam.models import Exam, Grade
@@ -99,11 +100,18 @@ def examDelete(request):
 @api_view(['POST'])
 def examCreate(request):
     serializer = ExamSerializer(data=request.data)
-    serializer.save()
     if serializer.is_valid():
         serializer.save()
-
-    return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    #
+    #
+    # serializer = ExamSerializer(data=request.data)
+    # serializer.save()
+    # if serializer.is_valid():
+    #     serializer.save()
+    #
+    # return Response(serializer.data)
 
 
 @api_view(['POST'])

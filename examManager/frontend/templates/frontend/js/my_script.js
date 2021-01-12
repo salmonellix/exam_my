@@ -93,6 +93,7 @@ function buildList(){
 
 
 		function deleteItem(item){
+
 			console.log('Delete clicked')
 			fetch(`http://127.0.0.1:8000/front/exam-delete/${item}/`, {
 				method:'DELETE',
@@ -188,7 +189,7 @@ function buildListStudents(){
 
                             </div>
                             <div style="flex:1">
-                                <button class="btn edit">OPEN </button>
+                                <button onclick="window.location.href='${list[i].location}/'" class="btn open">OPEN </button>
                             </div>
 
 						`
@@ -207,6 +208,7 @@ function buildListGrades(){
 			//wrapper.innerHTML = ''
 
 			var url = 'http://127.0.0.1:8000/grades/';
+			// var url2 = 'http://127.0.0.1:8000/exam/';
 
 			fetch(url)
 			.then((resp) => resp.json())
@@ -221,12 +223,6 @@ function buildListGrades(){
                             <span class=title"> Student ID: ${list[i].student_id}</span>
                             <span class=title"> Exam ID: ${list[i].exam_id}</span>
                             <span class=title"> Grade: ${list[i].grade_number}</span>
-                            </div>
-                            <div style="flex:1">
-                                <button class="btn edit">EDIT </button>
-                            </div>
-                             <div style="flex:1">
-                                <button class="btn delete">DELETE</button>
                             </div>
                             </div>
 						`
@@ -308,13 +304,12 @@ var wrapper = document.getElementById('list-wrapper-search');
                             <div style="flex:7">
                             <span class=title"> Title: ${list[i].title}</span>
                             <span class=title"> Description: ${list[i].description}</span>
-                            <span class=title"> Location: ${list[i].location}</span>
+                            <span class="location"> Location: ${list[i].location}</span>                          
                             <span class=title"> ID: ${list[i].id_exam}</span>
-
 
                             </div>
                             <div style="flex:1">
-                                <button class="btn open">OPEN </button>
+                                <button onclick="window.location.href='${list[i].location}/'" class="btn open">OPEN </button>
                             </div>
                             </div>
                             </div>
@@ -323,3 +318,31 @@ var wrapper = document.getElementById('list-wrapper-search');
 								}
 
 			})}
+
+
+function buildListStudentsPOST(){
+			clearAll()
+			var wrapper = document.getElementById('list-wrapper-students-POST');
+			//wrapper.innerHTML = ''
+			var url = 'http://127.0.0.1:8000/students/';
+			fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data);
+				var list = data;
+				for (var i in list){
+						var item = `
+                    <div id="data-row-check-${i}" class="task-wrapper flex-wrapper">
+												<div class="checkbox" style="flex:7">
+					 <label>
+					 <input type="checkbox" name="student" value="${list[i].id_user}>
+					</label>
+                            <td class=title"> Name: ${list[i].first_name}</td>
+                            <td class=title"> Last Name: ${list[i].last_name}</td>
+                            <td class=title"> ID: ${list[i].username}</td>
+                            </div>`
+						wrapper.innerHTML += item
+					}
+			})
+
+		}

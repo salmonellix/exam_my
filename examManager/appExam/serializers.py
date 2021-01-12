@@ -8,11 +8,9 @@ from .models import Exam, Student, Grade, Teacher
 
 
 class ExamSerializer(serializers.ModelSerializer):
-    file_uploaded = FileField()
-
     class Meta:
         model = Exam
-        fields = ['id_exam', 'date', 'title', 'description', 'location', 'student_id', 'file_uploaded']
+        fields = ['id_exam', 'date', 'title', 'description', 'location', 'student_id']
 
 
 class StudentSerializer(serializers.ModelSerializer):

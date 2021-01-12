@@ -52,7 +52,7 @@ class Exam(models.Model):
     description = models.CharField(max_length=400, blank=True, default='')
     location = models.CharField(max_length=1000, blank=True, default='8000')
     student_id = models.ManyToManyField(Student, blank=True, default='')
-    file_uploaded = models.FileField(upload_to='file_uploaded', max_length=100, blank=True)
+    # file_uploaded = models.FileField(upload_to='file_uploaded', max_length=100, blank=True)
 
     # def __unicode__(self):
     #     return self.title

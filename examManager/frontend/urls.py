@@ -12,7 +12,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('student/examslist/', views.examsStudent, name='exam_student'),
     path('student/gradeslist/', views.gradesStudent, name='grades_student'),
-    path('student/', views.homeStudent, name='home_student'),
+    # path('student/', views.homeStudent, name='home_student'),
     path('exam-delete/<int:rid>/', views.examDelete, name="exam-delete"),
     path('exam-create/', views.examCreate, name="exam-create"),
     path('exam-update/<int:rid>/', views.examUpdate, name="exam-update"),
