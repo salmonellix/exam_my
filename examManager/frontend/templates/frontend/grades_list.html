@@ -42,14 +42,76 @@
 
 	<h3>Grades List:</h3>
     <div class="container">
+            <div class="container">
+        <div id="task-container">
+
+            <div id="form-wrapper">
+
+				<form id="form">
+					<div class="flex-wrapper">
+						<div style="flex: 6">
+
+                            <h5>ADD GRADES:</h5>
+							<input id="title" class="form-control" type="text" name="title" placeholder="GRADE">
+{#                            <input id="description" class="form-control" type="text" name="description" placeholder="description">#}
+{#                            <input id="location" class="form-control" type="text" name="location" placeholder="location">#}
+{#                            <input id="id_s" class="form-control" type="text" name="id_s" placeholder="ID students">#}
+{#                            <br />Students:#}
+                            <div id="list-wrapper-grades-POST">
+                            </div>
+						</div>
+                        <div>
+							<input id="submit" class="btn" type="submit" value="POST">
+						</div>
+
+					</div>
+				</form>
+{#                <div>#}
+{#							<input id="submit" class="btn" type="submit" value="POST">#}
+{#                </div>#}
+			</div>
+
+    </div>
+
 		<div id="task-container">
-			<div id="form-wrapper">
-			            <div id="list-wrapper">
+            <div id="form-wrapper">
+            <form id="form">
+					<div class="flex-wrapper">
+						<div style="flex:6">
+							<input id="search" class="form-control" name="search" placeholder="Search">
+						</div>
+                        <div style="flex:1">
+							<input id="search" class="btn" onclick="searchExam()" value="SEARCH">
+						</div>
+                        <div style="flex:1">
+							<input id="clear" class="btn" onclick="clearSearch()" value="CLEAR">
+						</div>
+
+					</div>
+				</form>
+
+            <h5>SEARCHED:</h5>
+            <div id="list-wrapper-search">
+			</div>
+            <h5>ALL:</h5>
+            <div id="list-wrapper">
 
 			</div>
-			</div>
-
 		</div>
+	</div>
+        </div>
+
+
+
+
+{#		<div id="task-container">#}
+{#			<div id="form-wrapper">#}
+{#			            <div id="list-wrapper">#}
+{##}
+{#			</div>#}
+{#			</div>#}
+{##}
+{#		</div>#}
 	</div>
 </div>
 

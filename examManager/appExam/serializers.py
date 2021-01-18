@@ -10,7 +10,7 @@ from .models import Exam, Student, Grade, Teacher
 class ExamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exam
-        fields = ['id_exam', 'date', 'title', 'description', 'location', 'student_id']
+        fields = '__all__'
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -18,6 +18,8 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = ['username', 'first_name', 'last_name', 'email', 'id_user']
+
+
 
 
 class GradeSerializer(serializers.ModelSerializer):
