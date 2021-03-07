@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'appExam.apps.AppexamConfig',
     'rest_framework',
     'frontend.apps.FrontendConfig',
-    'drf_auto_endpoint',
+    # 'drf_auto_endpoint',
 ]
 
 MIDDLEWARE = [
