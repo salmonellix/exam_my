@@ -11,7 +11,7 @@ The main goal is to manage exams and student grades. The data can be manipulated
 Run
 ====
 
-Build and run container:
+Build and run:
 ```
     docker-compose up -d --build
 ```
