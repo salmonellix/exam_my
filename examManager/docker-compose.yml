@@ -5,7 +5,7 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/food_diary
+      - .:/exam_manager
     ports:
       - 8000:8000
     environment:
@@ -19,6 +19,14 @@ services:
       - SQL_HOST=db
       - SQL_PORT=5432
       - DATABASE=postgres
+  nginx:
+    build: ./nginx
+    volumes:
+      - .:/exam_manager
+    ports:
+      - "80:80"
+    depends_on:
+      - web
 
   db:
     image: postgres:12.0-alpine
